@@ -1,0 +1,195 @@
+<main class="px-40 py-4 bg-slate-300 h-screen w-full">
+  <!-- <h1>Servicio de Reportes de Telefonía Solvan</h1> -->
+
+  <div
+    class="flex items-center justify-between h-full p-4 rounded-lg bg-blue-800"
+  >
+    <!-- seccion de inicio de sesion -->
+    <section
+      class="flex flex-col items-center justify-between p-4 h-full bg-gray-200 rounded-md px-10"
+    >
+      <!-- logo de solvan -->
+      <article class="flex items-center gap-2 justify-startrounded-lg">
+        <img
+          src="https://cdn.joaju.net/customers/logo-solvan.jpg"
+          alt="Solvan Logo"
+          class="w-10 h-10 object-cover rounded-full"
+        />
+        <h2 class="text-cyan-800 font-medium">
+          Solvan Soluciones de Vanguardia
+        </h2>
+      </article>
+
+      <!-- formulario de inicio de sesion -->
+      <article class="flex flex-col items-start justify-center w-full h-full">
+        <h2 class="text-xl font-semibold text-cyan-800 text-center pb-4">
+          Iniciar Sesión
+        </h2>
+        <form class="max-w-md mx-auto w-full">
+          <div class="relative z-0 w-full mb-5 group">
+            <input
+              type="text"
+              name="floating_username"
+              id="floating_username"
+              class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
+              placeholder=" "
+              required
+            />
+            <label
+              for="floating_username"
+              class="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 rtl:peer-focus:left-auto peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
+              >Usuario</label
+            >
+          </div>
+          <div class="relative z-0 w-full mb-5 group">
+            <input
+              type="password"
+              name="floating_password"
+              id="floating_password"
+              class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
+              placeholder=" "
+              required
+            />
+            <label
+              for="floating_password"
+              class="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
+              >Contraseña</label
+            >
+          </div>
+
+          <button
+            type="submit"
+            class="text-white w-full bg-green-500 hover:bg-green-700 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg flex gap-2 justify-center text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+            (click)="onSubmit()"
+          >
+            Iniciar Sesión
+            <span>
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 20 20"
+                fill="currentColor"
+                class="size-5"
+              >
+                <path
+                  d="M3.105 2.288a.75.75 0 0 0-.826.95l1.414 4.926A1.5 1.5 0 0 0 5.135 9.25h6.115a.75.75 0 0 1 0 1.5H5.135a1.5 1.5 0 0 0-1.442 1.086l-1.414 4.926a.75.75 0 0 0 .826.95 28.897 28.897 0 0 0 15.293-7.155.75.75 0 0 0 0-1.114A28.897 28.897 0 0 0 3.105 2.288Z"
+                />
+              </svg>
+            </span>
+          </button>
+        </form>
+      </article>
+      <div class="text-sm text-cyan-700 font-semibold">
+        <!-- <p>Olvidaste tu contraseña? <a class="text-sm underline decoration-sky-600 hover:decoration-blue-400 text-right" href="#">Click aquí</a></p> -->
+        <a class="text-sm text-right text-cyan-700 hover:text-cyan-800" href="#"
+          >Olvidaste tu contraseña?</a
+        >
+      </div>
+    </section>
+
+    <section class="flex flex-col text-white w-3/5 h-full justify-evenly p-4">
+      <h2 class="text-3xl text-center">
+        Bienvenido a
+        <span
+          class="bg-clip-text text-transparent font-bold bg-gradient-to-r from-green-400 to-slate-100"
+          >CloudPbx</span
+        >
+      </h2>
+
+      <ul class="space-y-4 text-left text-slate-300 dark:text-gray-400">
+        <li class="flex items-center space-x-3 rtl:space-x-reverse">
+          <svg
+            class="flex-shrink-0 w-3.5 h-3.5 text-green-500 dark:text-green-400"
+            aria-hidden="true"
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 16 12"
+          >
+            <path
+              stroke="currentColor"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M1 5.917 5.724 10.5 15 1.5"
+            />
+          </svg>
+          <span>Visualiza cada detalle de tus llamadas en la nube</span>
+        </li>
+        <li class="flex items-center space-x-3 rtl:space-x-reverse">
+          <svg
+            class="flex-shrink-0 w-3.5 h-3.5 text-green-500 dark:text-green-400"
+            aria-hidden="true"
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 16 12"
+          >
+            <path
+              stroke="currentColor"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M1 5.917 5.724 10.5 15 1.5"
+            />
+          </svg>
+          <span>Control total sobre tus comunicaciones</span>
+        </li>
+        <li class="flex items-center space-x-3 rtl:space-x-reverse">
+          <svg
+            class="flex-shrink-0 w-3.5 h-3.5 text-green-500 dark:text-green-400"
+            aria-hidden="true"
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 16 12"
+          >
+            <path
+              stroke="currentColor"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M1 5.917 5.724 10.5 15 1.5"
+            />
+          </svg>
+          <span>Cada llamada cuenta. Conoce los detalles</span>
+        </li>
+        <li class="flex items-center space-x-3 rtl:space-x-reverse">
+          <svg
+            class="flex-shrink-0 w-3.5 h-3.5 text-green-500 dark:text-green-400"
+            aria-hidden="true"
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 16 12"
+          >
+            <path
+              stroke="currentColor"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M1 5.917 5.724 10.5 15 1.5"
+            />
+          </svg>
+          <span>Tus reportes de llamadas, siempre disponibles</span>
+        </li>
+        <li class="flex items-center space-x-3 rtl:space-x-reverse">
+          <svg
+            class="flex-shrink-0 w-3.5 h-3.5 text-green-500 dark:text-green-400"
+            aria-hidden="true"
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 16 12"
+          >
+            <path
+              stroke="currentColor"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M1 5.917 5.724 10.5 15 1.5"
+            />
+          </svg>
+          <span
+            >Datos en tiempo real para mejorar tu estrategia de
+            comunicación</span
+          >
+        </li>
+      </ul>
+    </section>
+  </div>
+</main>

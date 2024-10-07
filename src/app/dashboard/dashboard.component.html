@@ -1,8 +1,9 @@
-<main>
+<main class="h-screen">
+  <!-- header -->
   <app-layout></app-layout>
   <h2>Bienvenido <span class="text-blue-500">Nombre del usuario</span></h2>
 
-  <div class="border-2 rounded border-cyan-700 w-2/3 h-full mx-auto mt-10">
+  <div class="border-2 rounded border-cyan-700 w-2/3 h-auto mx-auto mt-10">
     <div class="relative overflow-x-auto shadow-md sm:rounded-lg">
       @if(loading){
       <div role="status">
@@ -102,4 +103,7 @@
       ></app-paginator>
     </div>
   </div>
+  
 </main>
+<!-- footer -->
+<app-footer></app-footer>

@@ -3,12 +3,13 @@ import { DashboardService } from './services/dashboard.service';
 import { PaginatorComponent } from "./components/paginator/paginator.component";
 import { DatePipe } from '@angular/common';
 import { LayoutComponent } from '../components/layout/layout.component';
+import { FooterComponent } from "../components/footer/footer.component";
 
 
 @Component({
   selector: 'app-dashboard',
   standalone: true,
-  imports: [PaginatorComponent, DatePipe, LayoutComponent],
+  imports: [PaginatorComponent, DatePipe, LayoutComponent, FooterComponent],
   templateUrl: './dashboard.component.html',
   styleUrl: './dashboard.component.css'
 })

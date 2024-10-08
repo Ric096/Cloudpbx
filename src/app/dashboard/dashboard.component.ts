@@ -19,7 +19,7 @@ export class DashboardComponent implements OnInit, AfterViewInit {
 
   paginatedData: any[] = [];  // Datos que se mostrarán en la página actual
   currentPage: number = 1;  // Página actual
-  pageSize: number = 5;  // Tamaño de cada página (número de registros por página)
+  pageSize: number = 15;  // Tamaño de cada página (número de registros por página)
   totalPages: number = 0;
 
   loading: boolean = false;

@@ -19,20 +19,11 @@ export class LoginComponent {
     console.log('submit');
     toast.success('Sesión iniciada correctamente');
 
-    // this.user = {
-    //   id: 1,
-    //   username: 'rgimenez',
-    //   team: 'joaju',
-    //   rol: 'admin',
-    //   company: 'joaju',
-    //   email: 'rgimenez@joaju.net',
-    // };
-
     this.user = {
       id: 1,
       username: 'rgimenez',
       team: 'joaju',
-      rol: 'client',
+      rol: 'admin',
       company: 'joaju',
       email: 'rgimenez@joaju.net',
     };

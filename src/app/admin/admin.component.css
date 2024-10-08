@@ -1,0 +1,30 @@
+
+main{
+  background: rgb(22,163,74);
+  background: linear-gradient(90deg, rgba(22,163,74,1) 0%, rgba(21,168,203,1) 33%, rgba(67,101,196,1) 91%);
+}
+
+.container {  
+  
+  display: grid;
+  grid-template-columns: 1fr 1.4fr 1fr;
+  grid-template-rows: 0.2fr 2fr 0fr;
+  gap: 0px 0px;
+  grid-auto-flow: row;
+  grid-template-areas:
+    "sidebar header ."
+    "sidebar content content"
+    ". . ."
+    ;
+}
+
+.content { 
+  grid-area: content;
+}
+.sidebar {
+  grid-area: sidebar; 
+}
+
+.header{
+  grid-area: header;
+}

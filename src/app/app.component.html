@@ -1,3 +1,11 @@
 <!-- <h2 class="underline text-3xl">Hello, {{ title }}</h2> -->
 <ngx-sonner-toaster richColors position="top-right"></ngx-sonner-toaster>
-<router-outlet />
+<header>
+  <app-layout></app-layout>
+</header>
+<main class="flex flex-col min-h-screen grow">
+  <router-outlet />
+</main>
+<footer>
+  <app-footer></app-footer>
+</footer>

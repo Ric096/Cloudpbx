@@ -1,5 +1,5 @@
 <main class="mx-auto h-full text-slate-600">
-  <app-layout class="bg-transparent"></app-layout>
+  <!-- <app-layout class="bg-transparent"></app-layout> -->
   
   <section class="container h-full p-2">
     <!-- Header -->
@@ -7,10 +7,18 @@
       <h2 class="text-white mx-8 text-2xl font-semibold">Panel de administrador</h2>
     </article>
 
+    <!-- Contenido principal -->
     <section class="content h-full">
-      <p>hola</p>
+      @if(showUser){
+        <app-create-user></app-create-user>
+      }
+
+      @if(showTeam){
+        <app-create-teams></app-create-teams>
+      }
     </section>
 
+    <!-- sisebar -->
     <section class="sidebar h-full flex flex-col gap-2">
       <!-- Ir al apartado de dashboard -->
       <article class="mx-auto bg-slate-50 p-2 rounded-md w-60">
@@ -55,24 +63,11 @@
           } 
         </ul>
       </article>
-      <!-- <article class="mx-auto bg-cyan-50 p-2 rounded-lg border-2 border-cyan-700 w-60">
-        <h3 class="text-xl text-center text-slate-800 font-semibold">Empresas asociadas</h3>
-        <ul class="px-4 py-2">
-          <li>
-            hola 
-          </li>
-          <li>
-            hola 
-          </li>
-          <li>
-            hola 
-          </li>
-        </ul>
-      </article> -->
+      
     </section>
       
   </section>
 
-  <app-footer></app-footer>
+  <!-- <app-footer></app-footer> -->
 </main>
 

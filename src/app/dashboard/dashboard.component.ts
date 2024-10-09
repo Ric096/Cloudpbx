@@ -1,4 +1,6 @@
 import { AfterViewInit, Component, OnInit, } from '@angular/core';
+import { FormsModule } from '@angular/forms'; 
+
 import { DashboardService } from './services/dashboard.service';
 import { PaginatorComponent } from "./components/paginator/paginator.component";
 import { DatePipe } from '@angular/common';
@@ -9,7 +11,7 @@ import { FooterComponent } from "../components/footer/footer.component";
 @Component({
   selector: 'app-dashboard',
   standalone: true,
-  imports: [PaginatorComponent, DatePipe, LayoutComponent, FooterComponent],
+  imports: [FormsModule, PaginatorComponent, DatePipe, LayoutComponent, FooterComponent],
   templateUrl: './dashboard.component.html',
   styleUrl: './dashboard.component.css'
 })
@@ -19,8 +21,10 @@ export class DashboardComponent implements OnInit, AfterViewInit {
 
   paginatedData: any[] = [];  // Datos que se mostrarán en la página actual
   currentPage: number = 1;  // Página actual
-  pageSize: number = 15;  // Tamaño de cada página (número de registros por página)
+  pageSize: number = 5;  // Tamaño de cada página (número de registros por página)
   totalPages: number = 0;
+
+  endDate:any
 
   loading: boolean = false;
   arrayOfPages: number[] = [];
@@ -33,7 +37,7 @@ export class DashboardComponent implements OnInit, AfterViewInit {
   tableHeaders: string[] = ['Id', 'Origen de la llamada','Destinatario','Extensión', 'Fecha', 'Duración', 'Audio'];
 
   ngOnInit(): void {
-    this.getData();
+    // this.getData();
 
   }
   
@@ -72,11 +76,6 @@ export class DashboardComponent implements OnInit, AfterViewInit {
 
   paginateData() {
     
-    // if(!this.data){
-    //   this.loading = true;
-    //   console.log('no hay datos');
-      
-    // } else {
       console.log('ya hay datos');
       
       this.loading = false
@@ -99,6 +98,11 @@ export class DashboardComponent implements OnInit, AfterViewInit {
   dowloadFile(file: any) {
 
     console.log(file);
+    
+  }
+
+  showInfo() {
+    console.log(this.endDate);
     
   }
 

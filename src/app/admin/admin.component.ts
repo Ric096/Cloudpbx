@@ -2,11 +2,13 @@ import { Component } from '@angular/core';
 import { FooterComponent } from "../components/footer/footer.component";
 import { LayoutComponent } from "../components/layout/layout.component";
 import { Router } from '@angular/router';
+import { CreateUserComponent } from "./components/create-user/create-user.component";
+import { CreateTeamsComponent } from "./components/create-teams/create-teams.component";
 
 @Component({
   selector: 'app-admin',
   standalone: true,
-  imports: [FooterComponent, LayoutComponent],
+  imports: [FooterComponent, LayoutComponent, CreateUserComponent, CreateTeamsComponent],
   templateUrl: './admin.component.html',
   styleUrl: './admin.component.css'
 })
@@ -48,46 +50,46 @@ export class AdminComponent {
       company: 'otro',
       email: 'pepito@otro.com',
     },
-    {
-      id:5,
-      username: 'pepe',
-      team: 'otro2',
-      rol: 'client',
-      company: 'otro2',
-      email: 'otro2@algo.com'
-    },
-    {
-      id:5,
-      username: 'pepe',
-      team: 'otro2',
-      rol: 'client',
-      company: 'otro2',
-      email: 'otro2@algo.com'
-    },
-    {
-      id:5,
-      username: 'pepe',
-      team: 'otro2',
-      rol: 'client',
-      company: 'otro2',
-      email: 'otro2@algo.com'
-    },
-    {
-      id:5,
-      username: 'pepe',
-      team: 'otro2',
-      rol: 'client',
-      company: 'otro2',
-      email: 'otro2@algo.com'
-    },
-    {
-      id:5,
-      username: 'pepe',
-      team: 'otro2',
-      rol: 'client',
-      company: 'otro2',
-      email: 'otro2@algo.com'
-    },
+    // {
+    //   id:5,
+    //   username: 'pepe',
+    //   team: 'otro2',
+    //   rol: 'client',
+    //   company: 'otro2',
+    //   email: 'otro2@algo.com'
+    // },
+    // {
+    //   id:5,
+    //   username: 'pepe',
+    //   team: 'otro2',
+    //   rol: 'client',
+    //   company: 'otro2',
+    //   email: 'otro2@algo.com'
+    // },
+    // {
+    //   id:5,
+    //   username: 'pepe',
+    //   team: 'otro2',
+    //   rol: 'client',
+    //   company: 'otro2',
+    //   email: 'otro2@algo.com'
+    // },
+    // {
+    //   id:5,
+    //   username: 'pepe',
+    //   team: 'otro2',
+    //   rol: 'client',
+    //   company: 'otro2',
+    //   email: 'otro2@algo.com'
+    // },
+    // {
+    //   id:5,
+    //   username: 'pepe',
+    //   team: 'otro2',
+    //   rol: 'client',
+    //   company: 'otro2',
+    //   email: 'otro2@algo.com'
+    // },
     
     
   ]
@@ -100,10 +102,12 @@ export class AdminComponent {
 
   showTeamModal() {
     this.showTeam = !this.showTeam
+    this.showUser = false;
   }
 
   showUserModal() {
     this.showUser = !this.showUser
+    this.showTeam = false;
   }
 
 }

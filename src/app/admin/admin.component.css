@@ -1,6 +1,7 @@
 
 main{
   background: rgb(22,163,74);
+  /* height:90vh; */
   background: linear-gradient(90deg, rgba(22,163,74,1) 0%, rgba(21,168,203,1) 33%, rgba(67,101,196,1) 91%);
 }
 

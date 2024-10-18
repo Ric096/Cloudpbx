@@ -1,4 +1,4 @@
-import { AfterViewInit, Component, OnInit, } from '@angular/core';
+import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { FormsModule } from '@angular/forms'; 
 
 import { DashboardService } from './services/dashboard.service';
@@ -6,6 +6,8 @@ import { PaginatorComponent } from "./components/paginator/paginator.component";
 import { DatePipe } from '@angular/common';
 import { LayoutComponent } from '../components/layout/layout.component';
 import { FooterComponent } from "../components/footer/footer.component";
+import { toast } from 'ngx-sonner';
+
 
 
 @Component({
@@ -15,17 +17,23 @@ import { FooterComponent } from "../components/footer/footer.component";
   templateUrl: './dashboard.component.html',
   styleUrl: './dashboard.component.css'
 })
-export class DashboardComponent implements OnInit, AfterViewInit {
+export class DashboardComponent implements OnInit {
 
   data: any;
+
+  user: any = JSON.parse(localStorage.getItem('user'));
+
+  @ViewChild('datepickerStart') datepickerStart: ElementRef;
+  @ViewChild('datepickerEnd') datepickerEnd: ElementRef;
 
   paginatedData: any[] = [];  // Datos que se mostrarán en la página actual
   currentPage: number = 1;  // Página actual
   pageSize: number = 5;  // Tamaño de cada página (número de registros por página)
   totalPages: number = 0;
 
-  endDate:any
-
+  endDate:any;
+  initialDate:any;
+  
   loading: boolean = false;
   arrayOfPages: number[] = [];
 
@@ -37,24 +45,29 @@ export class DashboardComponent implements OnInit, AfterViewInit {
   tableHeaders: string[] = ['Id', 'Origen de la llamada','Destinatario','Extensión', 'Fecha', 'Duración', 'Audio'];
 
   ngOnInit(): void {
-    // this.getData();
 
   }
   
-  ngAfterViewInit(): void {
-    
-  }
-  
-  
   getData() {
     
-    this.dashboardService.getDashboardData().subscribe((data) => {
+    this.loading = true
+
+    this.dashboardService.getDashboardData(this.initialDate, this.endDate).subscribe((data: any) => {
       
       console.log(data);
+
+      this.loading = false
       
-      const { mensaje } = data;
+      const { mensaje,registro, err_code } = data;
+
+      if(err_code === '400' || registro <= 0) {
+        toast.info('No se encontraron registros');
+        return;
+      }
+
       
       this.data = mensaje;
+
       // Funcion para obtener el numero de paginas
       this.getTotalPages(this.data);
 
@@ -65,6 +78,8 @@ export class DashboardComponent implements OnInit, AfterViewInit {
   }
 
   getTotalPages(data: any) {
+    this.arrayOfPages = []
+
     this.totalPages = Math.ceil(data.length / this.pageSize);
     console.log(this.totalPages);
     
@@ -78,7 +93,7 @@ export class DashboardComponent implements OnInit, AfterViewInit {
     
       console.log('ya hay datos');
       
-      this.loading = false
+      // this.loading = false
       const startIndex = (this.currentPage - 1) * this.pageSize;
       
       const endIndex = startIndex + this.pageSize;
@@ -97,12 +112,34 @@ export class DashboardComponent implements OnInit, AfterViewInit {
 
   dowloadFile(file: any) {
 
+    if(!file){
+      toast.info('La grabación no existe')
+      return;
+    }
+
+    // this.router.navigate(['/download', file.id])
+
     console.log(file);
+
+    window.open(`https://cloudpbx.joaju.net/descargar.php?grabacion=${file}`, '_blank')
     
   }
 
-  showInfo() {
-    console.log(this.endDate);
+  showInfo(): void {
+
+    if(!this.initialDate) {
+      toast.error('Debe seleccionar una fecha de inicio')
+      return
+    }
+
+    if(!this.endDate) {
+      toast.error('Debe seleccionar una fecha de fin')
+      return 
+    }
+
+    console.log(this.initialDate, this.endDate)
+
+    this.getData();
     
   }
 

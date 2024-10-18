@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import { AvatarComponent } from "../avatar/avatar.component";
+import { Router } from '@angular/router';
+import { toast } from 'ngx-sonner';
 
 @Component({
   selector: 'app-layout',
@@ -10,8 +12,16 @@ import { AvatarComponent } from "../avatar/avatar.component";
 })
 export class LayoutComponent {
 
-  constructor() {
+  constructor(private router: Router) {
     
+  }
+
+  logout() {
+    localStorage.clear();
+    toast.info('Sesión cerrada');
+    this.router.navigate(['/login']);
+    // cookies.remove('user');
+    console.log('ha cerrado sesión')
   }
 
 }

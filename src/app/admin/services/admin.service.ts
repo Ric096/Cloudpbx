@@ -6,8 +6,11 @@ import { environment } from '../../../environments/environment.development';
 
 const URL = environment.backednUrl;
 
+const token = JSON.parse(localStorage.getItem('token'))?.access;
+
 const headers = {
   'Content-Type': 'application/json',
+  'Authorization': `Bearer ${token}`
 }
 
 @Injectable({

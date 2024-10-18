@@ -56,9 +56,9 @@
       <article class="mx-auto bg-slate-50 p-2 rounded-md w-60">
         <h3 class="text-lg text-slate-600 font-semibold px-2">Usuarios</h3>
         <ul class="px-4 py-2">
-          @for (user of users; track $index) {
+          @for (user of users2; track $index) {
             <li class="text-slate-600 text-sm p-2 border-b-2 border-slate-200" >  
-              {{user.username}} ( {{user.company}} )
+              {{user.username}} ( {{user.team}} )
             </li>
           } 
         </ul>

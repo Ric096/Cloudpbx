@@ -1,14 +1,46 @@
-<!-- <div class="mx-auto bg-slate-50 p-2 rounded-md "> -->
-<!-- <section class="bg-gray-50 dark:bg-gray-900 text-slate-600"> -->
 <div class="flex flex-col items-center justify-center px-2 py-2 mx-auto">
   <div
     class="w-full bg-white rounded-lg shadow dark:border md:mt-0 sm:max-w-md xl:p-0 dark:bg-gray-800 dark:border-gray-700"
   >
     <div class="p-6 space-y-4 md:space-y-6 sm:p-8">
-      <h2 class="font-semibold leading-tight tracking-tight dark:text-white">
-        Crear Usuario
-      </h2>
       <form class="space-y-4 md:space-y-6 text-sm">
+
+        <!-- Nombre y apellido -->
+        <div class="flex gap-4"> 
+          <article>
+            <label
+              for="name"
+              class="block mb-2 text-xs font-semibold dark:text-white"
+              >Nombre</label
+            >
+            <input
+              type="text"
+              name="name"
+              id="name"
+              [(ngModel)]="name"
+              class="bg-gray-50 border border-gray-300 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+              placeholder="Nombre"
+              required=""
+            />
+          </article>
+          <article >
+            <label
+              for="lastname"
+              class="block mb-2 text-xs font-semibold dark:text-white"
+              >Apellido</label
+            >
+            <input
+              type="text"
+              name="lastname"
+              id="lastname"
+              [(ngModel)]="lastname"
+              class="bg-gray-50 border border-gray-300 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+              placeholder="Apellido"
+              required=""
+            />
+          </article>
+        </div>
+
         <!-- Correo -->
         <div>
           <label
@@ -20,6 +52,7 @@
             type="email"
             name="email"
             id="email"
+            [(ngModel)]="email"
             class="bg-gray-50 border border-gray-300 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
             placeholder="name@company.com"
             required=""
@@ -36,6 +69,7 @@
             type="text"
             name="username"
             id="username"
+            [(ngModel)]="username"
             class="bg-gray-50 border border-gray-300 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
             placeholder="Nombre de usuario"
             required=""
@@ -43,7 +77,7 @@
         </div>
         <!-- Team -->
         <div>
-          <app-dropdown [data]="teamData" [key]="'n_team'"></app-dropdown>
+          <app-dropdown (selectedTeam)="team = $event" [data]="teamData" [key]="'n_team'"></app-dropdown>
         </div>
         <!-- Contraseña -->
         <div>
@@ -56,6 +90,7 @@
             type="password"
             name="password"
             id="password"
+            [(ngModel)]="password"
             placeholder="••••••••"
             class="bg-gray-50 border border-gray-300 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
             required=""
@@ -72,6 +107,7 @@
             type="password"
             name="confirm-password"
             id="confirm-password"
+            [(ngModel)]="confirmPassword"
             placeholder="••••••••"
             class="bg-gray-50 border border-gray-300 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
             required=""
@@ -80,7 +116,8 @@
         <!-- Guardar -->
         <button
           type="submit"
-          class="w-full text-white bg-cyan-600 hover:bg-primary-700 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800"
+          (click)="createUser()"
+          class="w-full text-white bg-cyan-600 hover:bg-cyan-700 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800"
         >
           Crear
         </button>

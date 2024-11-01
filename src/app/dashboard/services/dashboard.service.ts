@@ -15,8 +15,7 @@ export class DashboardService {
 
   constructor(private readonly http: HttpClient) { }
 
-  getDashboardData(inititalDate: any, endDate: any): Observable<any> {
-
-    return this.http.get(`${environment.apiTestUrl}team=joaju&fecha_ini=${inititalDate}&fecha_fin=${endDate}`, { headers: headers });
+  getDashboardData(inititalDate: any, endDate: any, team: string): Observable<any> {
+    return this.http.get(`${environment.apiTestUrl}team=${team}&fecha_ini=${inititalDate}&fecha_fin=${endDate}`, { headers: headers });
   }
 }

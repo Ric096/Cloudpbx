@@ -77,7 +77,12 @@
         </div>
         <!-- Team -->
         <div>
-          <app-dropdown (selectedTeam)="team = $event" [data]="teamData" [key]="'n_team'"></app-dropdown>
+          <app-dropdown 
+            (selectedTeam)="team = $event"
+            [data]="teamData" 
+            [key]="'n_team'"
+            [cleanField]="cleanField"
+          ></app-dropdown>
         </div>
         <!-- Contraseña -->
         <div>

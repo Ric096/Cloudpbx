@@ -30,4 +30,12 @@ export class TeamService {
     return this.http.get(`${environment.backednUrl}/api/users`);
   }
 
+  createInternalAgents(data: any): Observable<any> {
+    return this.http.post(`${API}`, data, { headers: headers });
+  }
+
+  deleteInternalAgents(data: any): Observable<any> {
+    return this.http.post(`${API}`, data, { headers: headers });
+  }
+
 }

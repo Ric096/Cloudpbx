@@ -13,30 +13,43 @@ import { AsyncPipe, JsonPipe } from '@angular/common';
 export class DropdownComponent {
 
   @Input() data: any;
-  @Input() key: any;
+  @Input() key: string;
+  @Input() cleanField: boolean;
+  @Input() title: string
 
   selectedTeam = output<string>()
 
   showDropdown: boolean = false;
-  team:string
+  element:any
   // selectedTeam: any;
   
   showInfo() {
     console.log(this.data);
 
-    console.log('se hizo click pero no aparece el dropdown jeje');
     this.showDropdown = !this.showDropdown;
   }
 
-  selectTeam(team: string) {
+  selectTeam(selectedElement: any) {
 
-    this.team = team
+    const key = this.key
+
+    this.element = selectedElement
+
+    console.log(this.element[key]);
 
     this.showDropdown = false;
 
-    this.selectedTeam.emit(team)
-    
+    this.selectedTeam.emit(selectedElement)
+
+    // console.log(this.cleanField); 
+
+    this.clearteam(selectedElement)
   }
 
+  clearteam(selectedElement:any) {
+
+    this.cleanField ? this.element = '' : this.element = selectedElement
+
+  }
 
 }

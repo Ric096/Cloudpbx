@@ -24,7 +24,8 @@ export class CreateUserComponent implements OnInit {
   username: string;
   password: string;
   confirmPassword: string;
-  team: string
+  team: any
+  cleanField: boolean = false;
 
 
 
@@ -63,13 +64,13 @@ export class CreateUserComponent implements OnInit {
       name: this.name,
       username: this.username,
       password: this.password,
-      teams: this.team
+      teams: this.team.n_team
     })
 
     console.log(newUser)
 
     // Hacemos la petición para crear el nuevo usuario
-    this.fetchingNewUser(newUser);
+    // this.fetchingNewUser(newUser);
 
     // Limpiamos el formulario
     this.clearForm();
@@ -104,6 +105,7 @@ export class CreateUserComponent implements OnInit {
     this.password = undefined;
     this.confirmPassword = undefined;
     this.team = undefined;
+    this.cleanField = true;
   }
 
 }

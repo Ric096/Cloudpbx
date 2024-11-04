@@ -76,14 +76,24 @@
           />
         </div>
         <!-- Team -->
-        <div>
+        <div class="flex gap-4"> 
           <app-dropdown 
             (selectedTeam)="team = $event"
+            [title]="'Selecciona un team'"
             [data]="teamData" 
             [key]="'n_team'"
             [cleanField]="cleanField"
           ></app-dropdown>
+          
+          <app-dropdown 
+          (selectedTeam)="role = $event"
+          [title]="'Rol'"
+          [data]="roles" 
+          [key]="'name'"
+          [cleanField]="cleanField"
+          ></app-dropdown>
         </div>
+          
         <!-- Contraseña -->
         <div>
           <label

@@ -85,7 +85,7 @@ export class LoginComponent {
         username: user.username,
         fullName: `${user.name} ${user.lastname}`, 
         email: user.email,
-        role: 'admin',
+        role: user.role,
       }
       // Guardamos en localStorage el usuario
       localStorage.setItem('user', JSON.stringify(this.user))

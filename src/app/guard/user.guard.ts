@@ -10,9 +10,9 @@ export const userGuard: CanActivateFn = (route, state) => {
 
   const user = JSON.parse(localStorage.getItem('user'));
   
-  console.log(user.rol);
+  console.log(user.role);
   
-  if(user.rol !== 'admin'){
+  if(user.role !== 'admin'){
     toast.error('No tienes permisos para ingresar')
     router.navigate(['/dashboard']);
     return false;

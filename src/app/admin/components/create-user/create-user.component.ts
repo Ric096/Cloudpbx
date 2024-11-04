@@ -26,7 +26,9 @@ export class CreateUserComponent implements OnInit {
   confirmPassword: string;
   team: any
   cleanField: boolean = false;
+  role: any;
 
+  roles: any[] = [{id: 1, name:'admin'}, { id:2, name:'customer'}];
 
 
   ngOnInit(): void { 
@@ -62,15 +64,18 @@ export class CreateUserComponent implements OnInit {
     let newUser = JSON.stringify({
       email: this.email,
       name: this.name,
+      lastname: this.lastname,
       username: this.username,
       password: this.password,
-      teams: this.team.n_team
+      // teams: this.team.n_team,
+      role: this.role.name
+
     })
 
     console.log(newUser)
 
     // Hacemos la petición para crear el nuevo usuario
-    // this.fetchingNewUser(newUser);
+    this.fetchingNewUser(newUser);
 
     // Limpiamos el formulario
     this.clearForm();

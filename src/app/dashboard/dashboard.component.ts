@@ -15,7 +15,7 @@ import { TeamService } from '../admin/services/team.service';
 @Component({
   selector: 'app-dashboard',
   standalone: true,
-  imports: [FormsModule, PaginatorComponent, DatePipe, LayoutComponent, FooterComponent, DropdownComponent],
+  imports: [FormsModule, PaginatorComponent, DatePipe, DropdownComponent],
   templateUrl: './dashboard.component.html',
   styleUrl: './dashboard.component.css'
 })
@@ -29,9 +29,10 @@ export class DashboardComponent implements OnInit {
   @ViewChild('datepickerEnd') datepickerEnd: ElementRef;
 
   paginatedData: any[] = [];  // Datos que se mostrarán en la página actual
-  currentPage: number = 1;  // Página actual
   pageSize: number = 5;  // Tamaño de cada página (número de registros por página)
+  currentPage: number = 1;  // Página actual
   totalPages: number = 0;
+  arrayOfPages: number[] = [];
   teams: any;
   team: string;
   selectTeam: any;
@@ -40,7 +41,6 @@ export class DashboardComponent implements OnInit {
   initialDate: any;
 
   loading: boolean = false;
-  arrayOfPages: number[] = [];
 
   constructor(private dashboardService: DashboardService, private teamService: TeamService) {  }
 

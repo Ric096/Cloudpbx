@@ -1,12 +1,12 @@
 import { Component, Input, output } from '@angular/core';
 // import { Observable } from 'rxjs';
-import { AsyncPipe, JsonPipe } from '@angular/common';
+// import { AsyncPipe, JsonPipe } from '@angular/common';
 
 
 @Component({
   selector: 'app-dropdown',
   standalone: true,
-  imports: [AsyncPipe, JsonPipe],
+  imports: [],
   templateUrl: './dropdown.component.html',
   styleUrl: './dropdown.component.css'
 })

@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { Component, Input,output } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 @Component({
@@ -16,7 +16,7 @@ export class PaginatorComponent {
 
   // arrayOfPages: number[] = [];
 
-  @Output() changePage = new EventEmitter<number>();
+  changePage = output<number>();
 
   constructor() {}
 

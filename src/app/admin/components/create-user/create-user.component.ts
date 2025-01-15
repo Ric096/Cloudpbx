@@ -4,11 +4,12 @@ import { TeamService } from '../../services/team.service';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { AdminService } from '../../services/admin.service';
 import { toast } from 'ngx-sonner';
+import { PaginatorComponent } from "../../../dashboard/components/paginator/paginator.component";
 
 @Component({
   selector: 'app-create-user',
   standalone: true,
-  imports: [DropdownComponent, ReactiveFormsModule, FormsModule],
+  imports: [DropdownComponent, ReactiveFormsModule, FormsModule, PaginatorComponent],
   templateUrl: './create-user.component.html',
   styleUrl: './create-user.component.css'
 })
@@ -27,12 +28,47 @@ export class CreateUserComponent implements OnInit {
   team: any
   cleanField: boolean = false;
   role: any;
+  showCreateUser: boolean = false;
+  tableHeaders: string[] = []
 
+  currentPage: number = 1;  // Página actual
+  totalPages: number = 0;
+  arrayOfPages: number[] = [];
+  pageSize: number = 5;
+  paginatedData: any
+
+  // USER roles
   roles: any[] = [{id: 1, name:'admin'}, { id:2, name:'customer'}];
 
 
   ngOnInit(): void { 
     this.getTeamData()
+    this.tableHeaders = ['ID', 'Teams', 'Acción']
+  }
+
+  showCreateModal(){
+    this.showCreateUser = !this.showCreateUser
+  }
+
+  paginateData() {
+
+    console.log('ya hay datos');
+
+    // this.loading = false
+    const startIndex = (this.currentPage - 1) * this.pageSize;
+
+    const endIndex = startIndex + this.pageSize;
+
+    console.log(startIndex, endIndex);
+
+    this.paginatedData = this.teamData?.slice(startIndex, endIndex);
+    console.log(this.paginatedData);
+    // } 
+  }
+
+  onPageChange(page: number) {
+    this.currentPage = page;
+    this.paginateData();
   }
 
   getTeamData() {

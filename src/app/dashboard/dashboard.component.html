@@ -1,14 +1,9 @@
 <main class="h-full w-full relative text-slate-600">
   <!-- header -->
 
-  <h2 class="text-white font-semibold text-xl pt-4 ml-20">
-    Bienvenido
-    <span class="text-blue-300">{{ user.fullname ?? '' }}</span>
-  </h2>
-
   <!-- Componente de fecha -->
   <div
-    class="flex justify-center items-center gap-4 px-4 py-2 w-2/5 border-2 border-dashed border-slate-300 rounded-lg mx-auto mt-4"
+    class="flex justify-center mt-12 items-center gap-4 px-4 py-2 w-2/5 border-2 border-dashed border-slate-300 rounded-lg mx-auto mt-4"
   >
     <!-- fecha de inicio -->
     <div class="relative max-w-sm text-xs text-white">
@@ -19,32 +14,6 @@
         [(ngModel)]="initialDate"
         placeholder="Fecha final"
       />
-      <!-- <div
-          class="absolute inset-y-0 start-0 flex items-center ps-3 pointer-events-none"
-        >
-          <svg
-            class="w-4 h-4 text-gray-500 dark:text-gray-400"
-            aria-hidden="true"
-            xmlns="http://www.w3.org/2000/svg"
-            fill="currentColor"
-            viewBox="0 0 20 20"
-          >
-            <path
-              d="M20 4a2 2 0 0 0-2-2h-2V1a1 1 0 0 0-2 0v1h-3V1a1 1 0 0 0-2 0v1H6V1a1 1 0 0 0-2 0v1H2a2 2 0 0 0-2 2v2h20V4ZM0 18a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V8H0v10Zm5-8h10a1 1 0 0 1 0 2H5a1 1 0 0 1 0-2Z"
-            />
-          </svg>
-        </div>
-        <input
-          id="datepicker"
-          #datepickerStart
-          datepicker
-          datepicker-format="dd-M-yyyy"
-          datepicker-autohide
-          type="text"
-          class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full ps-10 p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-          placeholder="Fecha Inicio"
-          [(ngModel)]="initialDate"
-        /> -->
     </div>
 
     <!-- Fecha fin -->
@@ -117,7 +86,7 @@
     </article>
 
   } @else {
-  <div class="border-2 rounded border-cyan-700 w-2/3 h-auto mx-auto mt-10">
+  <div class=" w-2/3 h-auto mx-auto mt-10">
     <div class="relative overflow-x-auto shadow-md sm:rounded-lg">
       <table
         class="text-sm h-auto text-left rtl:text-right text-gray-500 dark:text-gray-400"
